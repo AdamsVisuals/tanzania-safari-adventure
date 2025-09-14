@@ -1959,7 +1959,7 @@ body {
     flex: 1;
     min-width: 300px;
     padding: 50px;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/DSC08115.jpg');
+    background: url('images/DSC08115.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -2156,6 +2156,7 @@ body {
 .hashtag {
     font-weight: bold;
     text-transform: uppercase;
+    font-family: "Finger Paint", cursive;
     font-size: 1.5rem;
     margin: 0;
     color: #333;
