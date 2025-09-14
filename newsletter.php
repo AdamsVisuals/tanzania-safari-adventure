@@ -1,8 +1,11 @@
 <?php
-use PHPMailer-master/src/PHPMailer.php;
-use PHPMailer-master/src/Exception.php;
+// Load PHPMailer classes manually
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-require 'vendor/autoload.php'; // Make sure to install PHPMailer via Composer
+require 'PHPMailer-master/src/Exception.php';
+require 'PHPMailer-master/src/PHPMailer.php';
+require 'PHPMailer-master/src/SMTP.php';
 
 header('Content-Type: application/json');
 
@@ -27,9 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Use TLS (587)
         $mail->Port = 587; // Port for TLS (or use 465 with SMTPS)
         
-        // Recipients
-        $mail->setFrom('info@tanzania-adventure-safari.com', 'Tanzania Safari Adventure');
-        $mail->addAddress('info@tanzania-safari-adventure.com');
+        // Recipients - Notification to admin
+        $mail->setFrom('info@tanzania-safari-adventure.com', 'Tanzania Safari Adventure');
+        $mail->addAddress('info@tanzania-safari-adventure.com'); // Recipient email
         $mail->addReplyTo($email);
         
         // Content
@@ -42,6 +45,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ";
         
         $mail->send();
+        
+        // Now send confirmation email to the client
+        $confirmationMail = new PHPMailer(true);
+        
+        // Server settings (same as above)
+        $confirmationMail->isSMTP();
+        $confirmationMail->Host = 'smtp.hostinger.com';
+        $confirmationMail->SMTPAuth = true;
+        $confirmationMail->Username = 'info@tanzania-safari-adventure.com';
+        $confirmationMail->Password = 'TanzaniaSafari@2025';
+        $confirmationMail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $confirmationMail->Port = 587;
+        
+        // Recipients - Confirmation to subscriber
+        $confirmationMail->setFrom('info@tanzania-safari-adventure.com', 'Tanzania Safari Adventure');
+        $confirmationMail->addAddress($email); // Send to the subscriber
+        
+        // Content
+        $confirmationMail->isHTML(true);
+        $confirmationMail->Subject = 'Welcome to Our Newsletter!';
+        $confirmationMail->Body = "
+            <h2>Thank You for Subscribing!</h2>
+            <p>Dear Subscriber,</p>
+            <p>Thank you for subscribing to our newsletter. You'll now receive updates about our Tanzania safari adventures, special offers, and travel tips.</p>
+            <p>If you did not request this subscription, please ignore this email.</p>
+            <br>
+            <p>Best regards,<br>Tanzania Safari Adventure Team</p>
+        ";
+        
+        $confirmationMail->send();
+        
         echo json_encode(['success' => true]);
     } catch (Exception $e) {
         error_log("PHPMailer Error: " . $mail->ErrorInfo);
