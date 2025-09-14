@@ -736,6 +736,128 @@
   </div>
 </section>
 
+<section class="newsletter-section">
+    <div class="newsletter-container">
+        <div class="newsletter-content">
+            <span class="newsletter-label">Stay Connected</span>
+            <h2 class="newsletter-heading">Get exclusive safari updates & offers</h2>
+            <p class="newsletter-description">Join our community of travelers and receive the latest safari deals and updates straight to your inbox.</p>
+        </div>
+        <div class="newsletter-form-container">
+            <form id="newsletter-form" class="newsletter-form" method="POST">
+                <input type="email" name="email" id="newsletter-email" placeholder="Enter your email address" required>
+                <button type="submit" class="newsletter-btn">Send</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Toast Notifications -->
+    <div id="success-toast" class="toast toast-success">
+        <span class="toast-message">Thank you for subscribing! Check your inbox.</span>
+        <button class="toast-close">&times;</button>
+    </div>
+    <div id="error-toast" class="toast toast-error">
+        <span class="toast-message">Something went wrong. Please try again.</span>
+        <button class="toast-close">&times;</button>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('newsletter-form');
+            const successToast = document.getElementById('success-toast');
+            const errorToast = document.getElementById('error-toast');
+            const closeButtons = document.querySelectorAll('.toast-close');
+            
+            // Close toast function
+            function closeToast(toast) {
+                toast.classList.remove('active');
+                setTimeout(() => {
+                    toast.style.display = 'none';
+                }, 300);
+            }
+            
+            // Add event listeners to close buttons
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const toast = this.parentElement;
+                    closeToast(toast);
+                });
+            });
+            
+            // Form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                const email = formData.get('email');
+                
+                // Basic email validation
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email)) {
+                    alert('Please enter a valid email address.');
+                    return;
+                }
+                
+                // Submit form via AJAX
+                fetch('newsletter.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Show success toast
+                        successToast.style.display = 'flex';
+                        setTimeout(() => {
+                            successToast.classList.add('active');
+                        }, 10);
+                        
+                        // Reset form
+                        form.reset();
+                    } else {
+                        // Show error toast
+                        errorToast.style.display = 'flex';
+                        setTimeout(() => {
+                            errorToast.classList.add('active');
+                        }, 10);
+                    }
+                })
+                .catch(error => {
+                    // Show error toast
+                    errorToast.style.display = 'flex';
+                    setTimeout(() => {
+                        errorToast.classList.add('active');
+                    }, 10);
+                });
+            });
+            
+            // Auto-hide toasts after 5 seconds
+            function autoHideToasts() {
+                const toasts = document.querySelectorAll('.toast.active');
+                toasts.forEach(toast => {
+                    setTimeout(() => {
+                        closeToast(toast);
+                    }, 5000);
+                });
+            }
+            
+            // Initialize auto-hide
+            setInterval(autoHideToasts, 100);
+        });
+    </script>
+</section>
+
+<section class="partners-section">
+    <div class="partners-logos">
+        <img src="images/p-logo-2.png" alt="Patriot Tours and Safaris Ltd" class="partner-logo">
+        <img src="images/pngfind.com-moutains-png-6933353.png" alt="Tanzania unforgettable" class="partner-logo">
+        <img src="images/ATTA-Logo-with-Icon.png" alt="ATTA Travel" class="partner-logo">
+        <img src="images/tato-vector-new-.webp" alt="TATO" class="partner-logo">
+        <img src="images/astalogonew_9.png" alt="ASTA" class="partner-logo">
+        <img src="images/TripAdvisor_Logo.svg.png" alt="TripAdvisor" class="partner-logo">
+    </div>
+</section>
+
     <script src="scripts.js"></script>
 </body>
 </html>
