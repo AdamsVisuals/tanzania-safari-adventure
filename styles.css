@@ -890,6 +890,111 @@ body {
     color: #e67e22;
 }
 
+/* Mobile Responsiveness */
+@media screen and (max-width: 1200px) {
+    .packages-grid {
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .packages-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .section-heading {
+        font-size: 2.2rem;
+    }
+    
+    .section-tagline {
+        font-size: 1.7rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .packages-section {
+        padding: 40px 15px;
+    }
+    
+    .section-heading {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+    
+    .section-tagline {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+    
+    .package-card {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .packages-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-heading {
+        font-size: 1.8rem;
+    }
+    
+    .section-tagline {
+        font-size: 1.3rem;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+    }
+    
+    .card-description {
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .packages-section {
+        padding: 30px 10px;
+    }
+    
+    .section-heading {
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+    }
+    
+    .section-tagline {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+    }
+    
+    .packages-grid {
+        gap: 20px;
+    }
+    
+    .package-card {
+        height: 180px;
+    }
+    
+    .card-overlay {
+        padding: 15px;
+    }
+    
+    .price-tag {
+        font-size: 0.8rem;
+        padding: 4px 10px;
+    }
+    
+    .card-button {
+        width: 35px;
+        height: 35px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
     .top-bar {
@@ -907,10 +1012,6 @@ body {
     
     .nav-link {
         font-size: 13px;
-    }
-    
-    .packages-grid {
-        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -952,14 +1053,6 @@ body {
     
     .mobile-menu {
         top: 70px;
-    }
-    
-    .packages-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .package-card {
-        height: 250px;
     }
     
     .hero-section {
@@ -1019,15 +1112,6 @@ body {
     
     .section-tagline {
         font-size: 1.1rem;
-    }
-    
-    .packages-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .package-card {
-        height: 220px;
     }
     
     .hero-section {
