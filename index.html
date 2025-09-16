@@ -25,7 +25,7 @@
     <link rel="icon" type="image/png" sizes="512x512" href="favicon_io/android-chrome-512x512.png">
     <!-- Boxicons CDN -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=1.2">
+    <link rel="stylesheet" href="styles.css?v=1.4">
 </head>
 <body>
     <!-- Top Bar -->
@@ -888,64 +888,76 @@
     </div>
 </section>
 
-<footer class="safari-footer">
-  <div class="footer-container">
-    <!-- Logo & Description -->
-    <div class="footer-brand">
-      <img src="images/Tanzania adventure transparent logo.png" alt="Tanzania Safari Adventure" class="footer-logo">
-      <p class="footer-description">Explore Tanzania’s breathtaking safaris with our trusted guides and curated experiences.</p>
+<footer class="footer-container">
+  <div class="footer-content">
+    <div class="footer-column footer-brand">
+      <div class="footer-logo">
+        <img src="images/Tanzania adventure transparent logo.png" alt="Company Logo" class="logo-img">
+      </div>
+      <p class="footer-tagline">Explore Tanzania’s breathtaking safaris with us.</p>
     </div>
     
-    <!-- Footer Links -->
-    <div class="footer-links">
-      <!-- Useful Links -->
-      <nav class="link-column">
-        <h3 class="link-heading">Useful Links</h3>
-        <ul class="link-list">
-          <li><a href="safaris.html">Safaris</a></li>
-          <li><a href="special-safaris.html">Special Safaris</a></li>
-          <li><a href="kilimanjaro.html">Kilimanjaro</a></li>
-          <li><a href="zanzibar.html">Zanzibar</a></li>
-        </ul>
-      </nav>
-      
-      <!-- Experiences -->
-      <nav class="link-column">
-        <h3 class="link-heading">Experiences</h3>
-        <ul class="link-list">
-          <li><a href="kilimanjaro.html">Kilimanjaro Hiking</a></li>
-          <li><a href="zanzibar.html">Zanzibar Getaway</a></li>
-          <li><a href="great-migration.html">Great Migration</a></li>
-          <li><a href="balloon-safaris.html">Balloon Safaris</a></li>
-        </ul>
-      </nav>
-      
-      <!-- Company -->
-      <nav class="link-column">
-        <h3 class="link-heading">Company</h3>
-        <ul class="link-list">
-          <li><a href="aboutus.html">About Us</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+    <!-- Useful Links -->
+    <div class="footer-column footer-links">
+      <h3 class="footer-heading">Useful Links</h3>
+      <ul class="footer-nav">
+        <li><a href="#" class="footer-link">Safaris</a></li>
+        <li><a href="#" class="footer-link">Special Safaris</a></li>
+        <li><a href="#" class="footer-link">Kilimanjaro</a></li>
+        <li><a href="#" class="footer-link">Zanzibar</a></li>
+      </ul>
+    </div>
+    
+    <!-- Experiences -->
+    <div class="footer-column footer-links">
+      <h3 class="footer-heading">Experiences</h3>
+      <ul class="footer-nav">
+        <li><a href="#" class="footer-link">Kilimanjaro Hiking</a></li>
+        <li><a href="#" class="footer-link">Zanzibar Getaway</a></li>
+        <li><a href="#" class="footer-link">Great Migration</a></li>
+        <li><a href="#" class="footer-link">Balloon Safaris</a></li>
+      </ul>
+    </div>
+    
+    <!-- Company -->
+    <div class="footer-column footer-links">
+      <h3 class="footer-heading">Company</h3>
+      <ul class="footer-nav">
+        <li><a href="#" class="footer-link">About Us</a></li>
+        <li><a href="#" class="footer-link">Blog</a></li>
+        <li><a href="#" class="footer-link">Contact</a></li>
+      </ul>
+    </div>
+    
+    <!-- Social Media -->
+    <div class="footer-column footer-social">
+      <h3 class="footer-heading">Follow Us</h3>
+      <div class="social-icons">
+        <a href="#" class="social-link" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="Twitter">
+          <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-copyright">
+      <p>
+        &copy; <span id="current-year"></span> Tanzania Safari Adventure — 
+        Designed by <a href="https://adamsplus.com" class="designer-link">Adams+</a>
+      </p>
     </div>
   </div>
   
-  <!-- Bottom Bar -->
-  <div class="footer-bottom">
-    <div class="footer-bottom-container">
-      <div class="credits">
-        <p>© 2025 Tanzania Safari Adventure | Designed by <a href="https://adamsplus.com" target="_blank">Adams+</a></p>
-      </div>
-      <div class="social-links">
-        <a href="https://www.facebook.com/tanzaniasafariexample" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/tanzaniasafariexample" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://twitter.com/tanzaniasafariexample" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.youtube.com/@tanzaniasafariexample" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
-      </div>
-    </div>
-  </div>
+  <script>
+    // Auto-update year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
 </footer>
 
     <script src="scripts.js"></script>
