@@ -19,25 +19,56 @@
             });
         });
 
-const toggleBtn = document.querySelector('.mobile-toggle');
-const closeBtn = document.querySelector('.mobile-close-btn');
-const mobileMenu = document.querySelector('.mobile-menu');
-const overlay = document.querySelector('.mobile-menu-overlay');
-
-toggleBtn.addEventListener('click', () => {
-    mobileMenu.classList.add('active');
-    overlay.classList.add('active');
-});
-
-closeBtn.addEventListener('click', () => {
-    mobileMenu.classList.remove('active');
-    overlay.classList.remove('active');
-});
-
-overlay.addEventListener('click', () => {
-    mobileMenu.classList.remove('active');
-    overlay.classList.remove('active');
-});
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileOverlay = document.querySelector('.mobile-menu-overlay');
+            const mobileCloseBtn = document.querySelector('.mobile-close-btn');
+            
+            // Toggle mobile menu
+            function toggleMobileMenu() {
+                mobileMenu.classList.toggle('active');
+                mobileOverlay.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            }
+            
+            mobileToggle.addEventListener('click', toggleMobileMenu);
+            mobileCloseBtn.addEventListener('click', toggleMobileMenu);
+            mobileOverlay.addEventListener('click', toggleMobileMenu);
+            
+            // Mobile dropdown functionality
+            const dropdownToggles = document.querySelectorAll('.mobile-nav-link.has-dropdown');
+            
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const dropdown = this.nextElementSibling;
+                    
+                    // Close other open dropdowns
+                    document.querySelectorAll('.mobile-dropdown.active').forEach(openDropdown => {
+                        if (openDropdown !== dropdown) {
+                            openDropdown.classList.remove('active');
+                            openDropdown.previousElementSibling.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    this.classList.toggle('active');
+                    dropdown.classList.toggle('active');
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.mobile-nav-item') && !e.target.closest('.mobile-toggle')) {
+                    document.querySelectorAll('.mobile-dropdown.active').forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                        dropdown.previousElementSibling.classList.remove('active');
+                    });
+                }
+            });
+        });
 
                 // Counter functionality for adults and children
         function setupCounter(decBtnId, incBtnId, valueId, min = 0, max = 10) {
