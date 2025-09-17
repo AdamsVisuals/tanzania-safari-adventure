@@ -1,0 +1,167 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# -------------------------------------------------------------------
+# SECURITY HEADERS
+# -------------------------------------------------------------------
+<IfModule mod_headers.c>
+    # Prevent clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # Enable XSS protection
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Prevent MIME type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Referrer policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Content Security Policy (adjust based on your needs)
+    # Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://trusted.cdn.com; style-src 'self' 'unsafe-inline'"
+    
+    # HSTS (Enable only after SSL is properly configured)
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# -------------------------------------------------------------------
+# CLEAN URL REWRITING
+# -------------------------------------------------------------------
+# Remove trailing slashes
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+# Remove www prefix (or add www if preferred)
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+# Force HTTPS (uncomment if using SSL)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Main clean URL rules
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/?$ index.php?page=$1 [L,QSA]
+
+# For multi-level URLs (e.g., /category/product)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/([^/]+)/?$ index.php?category=$1&page=$2 [L,QSA]
+
+# For three-level URLs (e.g., /category/subcategory/product)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/?$ index.php?category=$1&subcategory=$2&page=$3 [L,QSA]
+
+# -------------------------------------------------------------------
+# CACHING AND PERFORMANCE
+# -------------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Default expiration: 1 hour after access
+    ExpiresDefault "access plus 1 hour"
+    
+    # CSS and JS
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType application/x-javascript "access plus 1 year"
+    
+    # Media files
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType video/mp4 "access plus 1 year"
+    ExpiresByType video/mpeg "access plus 1 year"
+    
+    # Fonts
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    
+    # XML and RSS
+    ExpiresByType application/xml "access plus 1 hour"
+    ExpiresByType application/rss+xml "access plus 1 hour"
+</IfModule>
+
+<IfModule mod_deflate.c>
+    # Compress text, HTML, CSS, JavaScript, JSON, and XML
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+</IfModule>
+
+# -------------------------------------------------------------------
+# SECURITY RULES
+# -------------------------------------------------------------------
+# Block access to hidden files and directories
+RewriteRule ^\. - [F]
+
+# Block access to backup and source files
+<FilesMatch "(^#.*#|\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|sw[op])|~)$">
+    Require all denied
+</FilesMatch>
+
+# Protect .htaccess file
+<Files .htaccess>
+    Require all denied
+</Files>
+
+# Block access to sensitive files
+<FilesMatch "(\.env|composer\.json|composer\.lock|package\.json|package-lock\.json)">
+    Require all denied
+</FilesMatch>
+
+# Disable directory browsing
+Options -Indexes
+
+# Prevent access to PHP files in uploads directory
+<IfModule mod_rewrite.c>
+    RewriteRule ^wp-content/uploads/.*\.(php|php5|php7|phtml)$ - [F]
+</IfModule>
+
+# -------------------------------------------------------------------
+# ERROR PAGES
+# -------------------------------------------------------------------
+ErrorDocument 400 /errors/400.html
+ErrorDocument 401 /errors/401.html
+ErrorDocument 403 /errors/403.html
+ErrorDocument 404 /errors/404.html
+ErrorDocument 500 /errors/500.html
+
+# -------------------------------------------------------------------
+# FILE TYPE HANDLING
+# -------------------------------------------------------------------
+# Serve appropriate content types
+AddType application/font-woff2 .woff2
+AddType image/svg+xml .svg
+
+# Character encoding
+AddDefaultCharset UTF-8
+
+# -------------------------------------------------------------------
+# PHP SETTINGS (if using PHP)
+# -------------------------------------------------------------------
+<IfModule mod_php.c>
+    # Security settings
+    php_flag expose_php Off
+    php_flag display_errors Off
+    php_flag log_errors On
+    
+    # Increase memory limit if needed
+    # php_value memory_limit 256M
+    
+    # Increase max execution time if needed
+    # php_value max_execution_time 300
+</IfModule>
