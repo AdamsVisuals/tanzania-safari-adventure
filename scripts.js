@@ -237,3 +237,56 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.tab');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    const tabIndicator = document.querySelector('.tab-indicator');
+    
+    // Function to activate a tab
+    function activateTab(tab) {
+        const target = tab.dataset.tab;
+        
+        // Deactivate all tabs and panes
+        tabs.forEach(t => t.classList.remove('active'));
+        tabPanes.forEach(p => p.classList.remove('active'));
+        
+        // Activate the clicked tab and corresponding pane
+        tab.classList.add('active');
+        document.getElementById(target).classList.add('active');
+        
+        // Move the indicator to the active tab
+        const tabRect = tab.getBoundingClientRect();
+        const tabsHeaderRect = tab.parentElement.getBoundingClientRect();
+        
+        tabIndicator.style.width = `${tabRect.width}px`;
+        tabIndicator.style.left = `${tabRect.left - tabsHeaderRect.left}px`;
+    }
+    
+    // Add click event to each tab
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => activateTab(tab));
+    });
+    
+    // Initialize the tab indicator position
+    const activeTab = document.querySelector('.tab.active');
+    if (activeTab) {
+        const tabRect = activeTab.getBoundingClientRect();
+        const tabsHeaderRect = activeTab.parentElement.getBoundingClientRect();
+        
+        tabIndicator.style.width = `${tabRect.width}px`;
+        tabIndicator.style.left = `${tabRect.left - tabsHeaderRect.left}px`;
+    }
+    
+    // Handle window resize to adjust tab indicator
+    window.addEventListener('resize', function() {
+        const activeTab = document.querySelector('.tab.active');
+        if (activeTab) {
+            const tabRect = activeTab.getBoundingClientRect();
+            const tabsHeaderRect = activeTab.parentElement.getBoundingClientRect();
+            
+            tabIndicator.style.width = `${tabRect.width}px`;
+            tabIndicator.style.left = `${tabRect.left - tabsHeaderRect.left}px`;
+        }
+    });
+});
