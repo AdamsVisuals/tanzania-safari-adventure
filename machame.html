@@ -25,7 +25,7 @@
     <link rel="icon" type="image/png" sizes="512x512" href="favicon_io/android-chrome-512x512.png">
     <!-- Boxicons CDN -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=1.5">
+    <link rel="stylesheet" href="styles.css?v=1.6">
     <link rel="stylesheet" href="machame.css?v=1.0">
 </head>
 <body>
@@ -95,11 +95,11 @@
         </div>
         
         <!-- Right: Navigation Links -->
-        <div class="top-nav-links">
-            <div class="top-nav-link">Blog</div>
-            <div class="top-nav-link">Practical Information</div>
-            <div class="top-nav-link">About Us</div>
-        </div>
+<div class="top-nav-links">
+    <a href="about.html" class="top-nav-link" title="Learn more about us">About Us</a>
+    <a href="practical-information.html" class="top-nav-link" title="Get practical travel information">Practical Information</a>
+    <a href="blog.html" class="top-nav-link" title="Read our latest blog posts">Blog</a>
+</div>
     </div>
 
 <header class="main-header">
@@ -213,7 +213,7 @@
     <input type="text" id="searchInput" class="search-expandable" placeholder="Search...">
     <i class="fas fa-search search-icon-absolute" id="searchBtn"></i>
   </div>
-      <button class="request-btn">MAKE REQUEST</button>
+      <button class="request-btn" onclick="window.location.href='booking.html'">MAKE REQUEST</button>
     </div>
 
     <div class="header-right-mobile">
@@ -300,7 +300,7 @@
             <li class="mobile-nav-item"><a href="zanzibar.html" class="mobile-nav-link">ZANZIBAR</a></li>
             <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">CONTACT</a></li>
         </ul>
-        <button class="mobile-request-btn">MAKE REQUEST</button>
+        <button class="request-btn" onclick="window.location.href='booking.html'">MAKE REQUEST</button>
     </div>
 </header>
 
@@ -323,24 +323,6 @@
       <h1 class="main-heading">Machame Route Overview</h1>
       <p class="tagline">The most popular and scenic path to Uhuru Peak</p>
       <p class="description">Known as the "Whiskey Route," the Machame Route is Kilimanjaro's most popular climbing path, famous for its stunning scenery and high success rates. This 7-day itinerary provides optimal acclimatization as you traverse through five diverse climatic zones - from lush rainforest to arctic summit. With challenging climbs during the day and camping at night, the Machame Route offers a true mountain adventure experience with breathtaking views of Kilimanjaro's southern ice fields.</p>
-      <div class="route-stats">
-        <div class="stat">
-          <span class="stat-number">7</span>
-          <span class="stat-label">Days Recommended</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">85%</span>
-          <span class="stat-label">Success Rate</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">62km</span>
-          <span class="stat-label">Total Distance</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">5,895m</span>
-          <span class="stat-label">Summit Altitude</span>
-        </div>
-      </div>
     </div>
     <div class="overview-image">
       <img src="images/IMG_6478.jpeg" alt="Machame Route Kilimanjaro">

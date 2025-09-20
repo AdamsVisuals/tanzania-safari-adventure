@@ -25,7 +25,7 @@
     <link rel="icon" type="image/png" sizes="512x512" href="favicon_io/android-chrome-512x512.png">
     <!-- Boxicons CDN -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=1.5">
+    <link rel="stylesheet" href="styles.css?v=1.6">
     <link rel="stylesheet" href="marangu.css?v=1.0">
 </head>
 <body>
@@ -95,11 +95,11 @@
         </div>
         
         <!-- Right: Navigation Links -->
-        <div class="top-nav-links">
-            <div class="top-nav-link">Blog</div>
-            <div class="top-nav-link">Practical Information</div>
-            <div class="top-nav-link">About Us</div>
-        </div>
+<div class="top-nav-links">
+    <a href="about.html" class="top-nav-link" title="Learn more about us">About Us</a>
+    <a href="practical-information.html" class="top-nav-link" title="Get practical travel information">Practical Information</a>
+    <a href="blog.html" class="top-nav-link" title="Read our latest blog posts">Blog</a>
+</div>
     </div>
 
 <header class="main-header">
@@ -213,7 +213,7 @@
     <input type="text" id="searchInput" class="search-expandable" placeholder="Search...">
     <i class="fas fa-search search-icon-absolute" id="searchBtn"></i>
   </div>
-      <button class="request-btn">MAKE REQUEST</button>
+      <button class="request-btn" onclick="window.location.href='booking.html'">MAKE REQUEST</button>
     </div>
 
     <div class="header-right-mobile">
@@ -300,7 +300,7 @@
             <li class="mobile-nav-item"><a href="zanzibar.html" class="mobile-nav-link">ZANZIBAR</a></li>
             <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">CONTACT</a></li>
         </ul>
-        <button class="mobile-request-btn">MAKE REQUEST</button>
+        <button class="request-btn" onclick="window.location.href='booking.html'">MAKE REQUEST</button>
     </div>
 </header>
 
@@ -323,24 +323,6 @@
       <h1 class="main-heading">Marangu Route Overview</h1>
       <p class="tagline">The most comfortable path to Uhuru Peak with hut accommodations</p>
       <p class="description">Known as the "Coca-Cola Route," the Marangu Route is Kilimanjaro's oldest and most established trail, famous for its comfortable hut accommodations. This 5-6 day itinerary provides a more sheltered climbing experience with dormitory-style huts at each camp. While shorter than other routes, it still offers spectacular views as you pass through rainforest, moorland, and alpine desert zones before reaching the arctic summit. The Marangu Route is ideal for those who prefer more comfort and shelter during their climb.</p>
-      <div class="route-stats">
-        <div class="stat">
-          <span class="stat-number">5-6</span>
-          <span class="stat-label">Days Recommended</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">65%</span>
-          <span class="stat-label">Success Rate</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">72km</span>
-          <span class="stat-label">Round Trip</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">5,895m</span>
-          <span class="stat-label">Summit Altitude</span>
-        </div>
-      </div>
     </div>
     <div class="overview-image">
       <img src="images/IMG_6415.jpeg" alt="Marangu Route Kilimanjaro">

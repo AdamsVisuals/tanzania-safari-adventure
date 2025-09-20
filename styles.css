@@ -1101,8 +1101,31 @@ body {
 }
 
 @media (max-width: 992px) {
-    .top-bar {
+    .reviews {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .review-badge {
         display: none;
+        padding: 6px 12px;
+        font-size: 12px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .switchers {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-left: 50px;
+    }
+
+    .top-nav-links{
+        display: none;
+        gap: 15px;
     }
     
     .main-header {
