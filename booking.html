@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Trip - Tanzania Safari Adventure</title>
+    <meta name="description" content="Experience the ultimate Tanzania Safari Adventure with our customizable packages. Explore the wild beauty of Serengeti, Ngorongoro Crater, and more. Book your dream trip today!">
+    <meta name="keywords" content="Tanzania Safari, Safari Adventure, Serengeti Safari, Ngorongoro Crater, Kilimanjaro Trek, Zanzibar Vacation, Wildlife Safari, Custom Safari Packages, Tanzania Travel, African Safari">
+    <meta name="author" content="Tanzania Safari Adventure">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet">
+    <link href="'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon_io/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon_io/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon_io/android-chrome-512x512.png">
+    <!-- Boxicons CDN -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=1.6">
+    <link rel="stylesheet" href="booking.css?v=1.0">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <!-- Left: Language and Currency Switchers -->
+        <div class="switchers">
+            <div class="switcher">
+                <div class="switcher-btn">
+                    <img src="https://flagcdn.com/w40/us.png" class="flag" alt="English">
+                    <span>EN</span>
+                    <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
+                </div>
+                <div class="dropdown">
+                    <div class="dropdown-item">
+                        <img src="https://flagcdn.com/w40/de.png" class="flag" alt="German">
+                        <span>DE</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <img src="https://flagcdn.com/w40/fr.png" class="flag" alt="French">
+                        <span>FR</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <img src="https://flagcdn.com/w40/es.png" class="flag" alt="Spanish">
+                        <span>ES</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <img src="https://flagcdn.com/w40/cn.png" class="flag" alt="Chinese">
+                        <span>CN</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="switcher">
+                <div class="switcher-btn">
+                    <i class="fas fa-dollar-sign dollar-icon"></i>
+                    <span>USD</span>
+                    <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
+                </div>
+                <div class="dropdown">
+                    <div class="dropdown-item">
+                        <span>EUR</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <span>GBP</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <span>TZS</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <span>JPY</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Center: Review Badges -->
+        <div class="reviews">
+            <div class="review-badge">
+                <i class="fab fa-google"></i>
+                <span>Google Reviews</span>
+            </div>
+            <div class="review-badge">
+               <img src="https://cdn.simpleicons.org/tripadvisor/f2e5d3" alt="Tripadvisor" width="24" height="24">
+               <span>Tripadvisor</span>
+            </div>
+        </div>
+        
+        <!-- Right: Navigation Links -->
+<div class="top-nav-links">
+    <a href="about.html" class="top-nav-link" title="Learn more about us">About Us</a>
+    <a href="practical-information.html" class="top-nav-link" title="Get practical travel information">Practical Information</a>
+    <a href="blog.html" class="top-nav-link" title="Read our latest blog posts">Blog</a>
+</div>
+    </div>
+
+<header class="main-header">
+  <div class="header-container">
+    <div class="logo">
+      <a href="./">
+        <img src="images/Tanzania adventure transparent logo.png" alt="Tanzania Safari Adventure">
+      </a>
+    </div>
+
+    <div class="nav-center">
+      <ul class="main-nav">
+
+        <!-- Regular Safaris -->
+        <li class="nav-item">
+          <a href="#" class="nav-link">SAFARIS</a>
+          <div class="mega-dropdown">
+            <a href="northern-circuit.html" class="mega-dropdown-item">
+              <img src="images/DSC08087.jpg" alt="Northern Circuit">
+              <div class="mega-dropdown-overlay">Northern Circuit</div>
+            </a>
+            <a href="southern-circuit.html" class="mega-dropdown-item">
+              <img src="images/nichika-sakurai-zgC7la8flMY-unsplash.jpg" alt="Southern Circuit">
+              <div class="mega-dropdown-overlay">Southern Circuit</div>
+            </a>
+            <a href="western-circuit.html" class="mega-dropdown-item">
+              <img src="images/gombe-3.jpg" alt="Western Circuit">
+              <div class="mega-dropdown-overlay">Western Circuit</div>
+            </a>
+            <a href="eastern-circuit.html" class="mega-dropdown-item">
+              <img src="images/d7b5f04e3bc540978888345c7e93ee36-1600.jpg" alt="Eastern Circuit">
+              <div class="mega-dropdown-overlay">Eastern Circuit</div>
+            </a>
+          </div>
+        </li>
+
+        <!-- Special Safaris -->
+        <li class="nav-item">
+          <a href="#" class="nav-link">SPECIALS</a>
+          <div class="mega-dropdown">
+            <a href="honeymoon-safaris.html" class="mega-dropdown-item">
+              <img src="images/zanzibar-transparent-kayak-and-drone-with-pickup-included-4819014.jpg" alt="Honeymoon Safaris">
+              <div class="mega-dropdown-overlay">Honeymoon Safaris</div>
+            </a>
+            <a href="bird-watching.html" class="mega-dropdown-item">
+              <img src="images/SnapInsta.to_400789565_211482005230927_1920742194801858091_n.jpg" alt="Bird Watching">
+              <div class="mega-dropdown-overlay">Bird Watching</div>
+            </a>
+            <a href="luxury-safaris.html" class="mega-dropdown-item">
+              <img src="images/zanzibar.jpg" alt="Luxury Safaris">
+              <div class="mega-dropdown-overlay">High-End Luxury</div>
+            </a>
+            <a href="culture-tours.html" class="mega-dropdown-item">
+              <img src="images/TT_03149tab.jpg" alt="Culture Tours">
+              <div class="mega-dropdown-overlay">Culture Tours</div>
+            </a>
+            <a href="balloon-safaris.html" class="mega-dropdown-item">
+              <img src="images/Serengeti-Hot-Air-Ballooning_017_3-1920x630.webp" alt="Balloon Safaris">
+              <div class="mega-dropdown-overlay">Balloon Safaris</div>
+            </a>
+          </div>
+        </li>
+
+        <!-- Wildebeest Migration -->
+        <li class="nav-item">
+          <a href="#" class="nav-link">MIGRATION</a>
+          <div class="mega-dropdown">
+            <a href="calving-migration.html" class="mega-dropdown-item">
+              <img src="images/TT_03867tab.jpg" alt="Calving Migration">
+              <div class="mega-dropdown-overlay">Calving Migration</div>
+            </a>
+            <a href="mara-river-migration.html" class="mega-dropdown-item">
+              <img src="images/ChatGPT Image Sep 8, 2025, 06_52_15 PM.png" alt="Mara River Crossing">
+              <div class="mega-dropdown-overlay">Mara River Crossing</div>
+            </a>
+          </div>
+        </li>
+
+        <!-- Kilimanjaro -->
+        <li class="nav-item">
+          <a href="#" class="nav-link">KILIMANJARO</a>
+          <div class="mega-dropdown">
+            <a href="machame.html" class="mega-dropdown-item">
+              <img src="images/IMG_6478.jpeg" alt="Machame Route">
+              <div class="mega-dropdown-overlay">Machame</div>
+            </a>
+            <a href="marangu.html" class="mega-dropdown-item">
+              <img src="images/IMG_0916.jpeg" alt="Marangu Route">
+              <div class="mega-dropdown-overlay">Marangu</div>
+            </a>
+            <a href="rongai.html" class="mega-dropdown-item">
+              <img src="images/IMG_6532.jpeg" alt="Rongai Route">
+              <div class="mega-dropdown-overlay">Rongai</div>
+            </a>
+            <a href="lemosho.html" class="mega-dropdown-item">
+              <img src="images/IMG_6487.jpeg" alt="Lemosho Route">
+              <div class="mega-dropdown-overlay">Lemosho</div>
+            </a>
+          </div>
+        </li>
+
+        <!-- Zanzibar -->
+        <li class="nav-item">
+          <a href="zanzibar.html" class="nav-link">ZANZIBAR</a>
+        </li>
+      </ul>
+    </div>
+
+<div class="header-right">
+  <div class="search-container">
+    <input type="text" id="searchInput" class="search-expandable" placeholder="Search...">
+    <i class="fas fa-search search-icon-absolute" id="searchBtn"></i>
+  </div>
+      <button class="request-btn" onclick="window.location.href='booking.html'">MAKE REQUEST</button>
+    </div>
+
+    <div class="header-right-mobile">
+      <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+
+    <div class="mobile-menu-overlay"></div>
+
+    <div class="mobile-menu">
+        <button class="mobile-close-btn"><i class="fas fa-times"></i></button>
+        <ul class="mobile-nav">
+            <li class="mobile-nav-item"><a href="index.html" class="mobile-nav-link">HOME</a></li>
+            
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link has-dropdown">SAFARIS</a>
+                <div class="mobile-dropdown">
+                    <a href="northern-circuit.html" class="mobile-dropdown-item">
+                        <span class="mobile-dropdown-link">Northern Circuit</span>
+                    </a>
+                    <a href="southern-circuit.html" class="mobile-dropdown-item">
+                        <span class="mobile-dropdown-link">Southern Circuit</span>
+                    </a>
+                    <a href="western-circuit.html" class="mobile-dropdown-item">
+                        <span class="mobile-dropdown-link">Western Circuit</span>
+                    </a>
+                    <a href="eastern-circuit.html" class="mobile-dropdown-item">
+                        <span class="mobile-dropdown-link">Eastern Circuit</span>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link has-dropdown">SPECIALS</a>
+                <div class="mobile-dropdown">
+                    <a href="honeymoon-safaris.html" class="mobile-dropdown-item">
+                        <span class="mobile-dropdown-link">Honeymoon Safaris</span>
+                    </a>
+                    <a href="bird-watching.html" class="mobile-dropdown-item">
+                        <span class="mobile-dropdown-link">Bird Watching</span>
+                    </a>
+                    <a href="luxury-safaris.html" class="mobile-dropdown-item">
+                        <span class="mobile-dropdown-link">High-End Luxury</span>
+                    </a>
+                    <a href="culture-tours.html" class="mobile-dropdown-item">
+                        <span class="mobile-dropdown-link">Culture Tours</span>
+                    </a>
+                    <a href="balloon-safaris.html" class="mobile-dropdown-item">
+                        <span class="mobile-dropdown-link">Balloon Safaris</span>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link has-dropdown">MIGRATION</a>
+                <div class="mobile-dropdown">
+                    <a href="calving-migration.html" class="mobile-dropdown-item">
+                        <span class="mobile-dropdown-link">Calving Migration</span>
+                    </a>
+                    <a href="mara-river-migration.html" class="mobile-dropdown-item">
+                        <span class="mobile-dropdown-link">Mara River Crossing</span>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link has-dropdown">KILIMANJARO</a>
+                <div class="mobile-dropdown">
+                    <a href="machame.html" class="mobile-dropdown-item">
+                        <span class="mobile-dropdown-link">Machame Route</span>
+                    </a>
+                    <a href="marangu.html" class="mobile-dropdown-item">
+                        <span class="mobile-dropdown-link">Marangu Route</span>
+                    </a>
+                    <a href="rongai.html" class="mobile-dropdown-item">
+                        <span class="mobile-dropdown-link">Rongai Route</span>
+                    </a>
+                    <a href="lemosho.html" class="mobile-dropdown-item">
+                        <span class="mobile-dropdown-link">Lemosho Route</span>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="mobile-nav-item"><a href="zanzibar.html" class="mobile-nav-link">ZANZIBAR</a></li>
+            <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">CONTACT</a></li>
+        </ul>
+        <button class="request-btn" onclick="window.location.href='booking.html'">MAKE REQUEST</button>
+    </div>
+</header>
+
+<section class="booking-hero">
+  <div class="booking-container">
+    <div class="booking-content">
+      <h1 class="booking-heading">Book Your Dream Safari Today</h1>
+      <p class="booking-description">Experience the wonders of Serengeti, Ngorongoro, and beyond with our tailored safari packages. Start your adventure now.</p>
+                <button class="booking-button" onclick="document.querySelector('.travel-proposal-section').scrollIntoView({behavior: 'smooth'})">
+                    Request Your Custom Proposal
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+    </div>
+    <div class="booking-image-container">
+      <div class="image-frame">
+        <img src="images/DSC_2078.JPG" alt="Tanzania Safari Adventure" class="hero-image">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="travel-proposal-section">
+    <div class="proposal-container">
+        <div class="proposal-header">
+            <h1>Request Travel Proposal</h1>
+            <p>Let us craft your perfect Tanzanian adventure</p>
+        </div>
+
+        <div class="proposal-content">
+            <div class="features-list">
+                <h2>Why book with us?</h2>
+                <ul>
+                    <li><i class="fas fa-check"></i> Tailor-made trips</li>
+                    <li><i class="fas fa-check"></i> Best price guarantee</li>
+                    <li><i class="fas fa-check"></i> Reply within 24 hours</li>
+                    <li><i class="fas fa-check"></i> Free of charge, no strings attached</li>
+                    <li><i class="fas fa-check"></i> Excellent service</li>
+                </ul>
+            </div>
+
+            <form id="travelProposalForm" class="travel-form">
+                <fieldset>
+                    <legend>Travel Information</legend>
+                    
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="travel-type" value="safari"> Safari
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="travel-type" value="beach"> Beach holiday
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="travel-type" value="kilimanjaro"> Climbing Kilimanjaro
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="travel-type" value="migration"> See the great migration
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="days">How many days do you want to travel? *</label>
+                        <div class="slider-container">
+                            <input type="range" id="days" name="days" min="3" max="22" value="10" class="slider">
+                            <div class="slider-values">
+                                <span>3</span>
+                                <span id="days-value">10 days</span>
+                                <span>21+</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Who are you travelling with? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="travel-companions" value="honeymoon" required> Honeymoon
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="travel-companions" value="family"> Family
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="travel-companions" value="solo"> Solo (no group tours)
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="travel-companions" value="couple"> Couple
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="travel-companions" value="friends"> Group of friends
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="travel-companions" value="other"> Other
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="travel-date">When do you want to travel? *</label>
+                        <input type="text" id="travel-date" name="travel-date" placeholder="MM/DD/YYYY" required class="date-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">Budget per person (excluding international flights) *</label>
+                        <div class="slider-container">
+                            <input type="range" id="budget" name="budget" min="3000" max="8500" value="4500" step="500" class="slider">
+                            <div class="slider-values">
+                                <span>$3000</span>
+                                <span id="budget-value">$4500</span>
+                                <span>$8000+</span>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Travellers & Ages</legend>
+                    
+                    <div class="travellers-counter">
+                        <div class="counter-group">
+                            <label>Adults</label>
+                            <div class="counter">
+                                <button type="button" class="counter-btn" data-target="adults" data-action="decrease">-</button>
+                                <input type="number" id="adults" name="adults" value="2" min="1" readonly>
+                                <button type="button" class="counter-btn" data-target="adults" data-action="increase">+</button>
+                            </div>
+                        </div>
+                        
+                        <div class="counter-group">
+                            <label>Children</label>
+                            <div class="counter">
+                                <button type="button" class="counter-btn" data-target="children" data-action="decrease">-</button>
+                                <input type="number" id="children" name="children" value="0" min="0" readonly>
+                                <button type="button" class="counter-btn" data-target="children" data-action="increase">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="ages-container" class="ages-container">
+                        <!-- Dynamic age inputs will be added here -->
+                    </div>
+                </fieldset>
+
+                <div class="form-group">
+                    <label for="notes">Additional Notes</label>
+                    <textarea id="notes" name="notes" placeholder="Do you want to combine safari & beach? Any special requirements or preferences?" rows="4"></textarea>
+                </div>
+
+                <fieldset>
+                    <legend>Contact Details</legend>
+                    
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="first-name">First name *</label>
+                            <input type="text" id="first-name" name="first-name" required>
+                        </div>
+                        <div class="form-group half">
+                            <label for="last-name">Last name *</label>
+                            <input type="text" id="last-name" name="last-name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group half">
+                            <label for="phone">Phone number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="country">Country *</label>
+                        <select id="country" name="country" required>
+                            <option value="">Select your country</option>
+                            <!-- Countries will be populated via JavaScript -->
+                        </select>
+                    </div>
+                </fieldset>
+
+                <div class="checkbox-group final">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="permission" required> 
+                        <span>I give permission to receive travel proposal and news *</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="discount"> 
+                        <span>Sign me up for a 5% discount on my safari adventure</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="submit-btn">Request Proposal</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="success-message" class="success-message hidden">
+        <i class="fas fa-check-circle"></i>
+        <h2>Thank you for your request!</h2>
+        <p>We've received your travel proposal request and will get back to you within 24 hours.</p>
+        <p>Check your email for a confirmation message.</p>
+    </div>
+
+    <!-- Include necessary scripts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="proposal.js"></script>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Initialize datepicker
+    $("#travel-date").datepicker({
+        minDate: 0,
+        dateFormat: 'mm/dd/yy'
+    });
+    
+    // Initialize phone input
+    const phoneInput = document.querySelector("#phone");
+    const iti = window.intlTelInput(phoneInput, {
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        separateDialCode: true,
+        preferredCountries: ['us', 'gb', 'de', 'fr']
+    });
+    
+    // Populate countries dropdown
+    const countrySelect = document.getElementById('country');
+    const countries = [
+        "United States", "United Kingdom", "Canada", "Australia", "Germany", 
+        "France", "Italy", "Spain", "Netherlands", "Switzerland", "South Africa",
+        "Other"
+    ];
+    
+    countries.forEach(country => {
+        const option = document.createElement('option');
+        option.value = country;
+        option.textContent = country;
+        countrySelect.appendChild(option);
+    });
+    
+    // Update slider values
+    const daysSlider = document.getElementById('days');
+    const daysValue = document.getElementById('days-value');
+    const budgetSlider = document.getElementById('budget');
+    const budgetValue = document.getElementById('budget-value');
+    
+    daysSlider.addEventListener('input', function() {
+        const value = this.value;
+        daysValue.textContent = value === '22' ? '21+ days' : `${value} days`;
+    });
+    
+    budgetSlider.addEventListener('input', function() {
+        const value = this.value;
+        budgetValue.textContent = value === '8500' ? '$8000+' : `$${value}`;
+    });
+    
+    // Handle traveller counters
+    const counterBtns = document.querySelectorAll('.counter-btn');
+    counterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const target = this.getAttribute('data-target');
+            const action = this.getAttribute('data-action');
+            const input = document.getElementById(target);
+            let value = parseInt(input.value);
+            
+            if (action === 'increase') {
+                value++;
+            } else if (action === 'decrease' && value > (target === 'children' ? 0 : 1)) {
+                value--;
+            }
+            
+            input.value = value;
+            
+            if (target === 'adults' || target === 'children') {
+                updateAgeInputs();
+            }
+        });
+    });
+    
+    // Update age inputs based on number of travellers
+    function updateAgeInputs() {
+        const adults = parseInt(document.getElementById('adults').value);
+        const children = parseInt(document.getElementById('children').value);
+        const totalTravellers = adults + children;
+        const agesContainer = document.getElementById('ages-container');
+        
+        agesContainer.innerHTML = '';
+        
+        if (totalTravellers > 0) {
+            const heading = document.createElement('h3');
+            heading.textContent = 'Ages of Travellers';
+            heading.style.marginTop = '0';
+            heading.style.fontSize = '1rem';
+            agesContainer.appendChild(heading);
+            
+            for (let i = 1; i <= adults; i++) {
+                const div = document.createElement('div');
+                div.className = 'form-group';
+                
+                const label = document.createElement('label');
+                label.textContent = `Adult ${i} Age`;
+                label.htmlFor = `adult-age-${i}`;
+                
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.id = `adult-age-${i}`;
+                input.name = `adult-age-${i}`;
+                input.min = '18';
+                input.max = '100';
+                input.required = true;
+                input.className = 'age-input';
+                input.placeholder = 'Age';
+                
+                div.appendChild(label);
+                div.appendChild(input);
+                agesContainer.appendChild(div);
+            }
+            
+            for (let i = 1; i <= children; i++) {
+                const div = document.createElement('div');
+                div.className = 'form-group';
+                
+                const label = document.createElement('label');
+                label.textContent = `Child ${i} Age`;
+                label.htmlFor = `child-age-${i}`;
+                
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.id = `child-age-${i}`;
+                input.name = `child-age-${i}`;
+                input.min = '0';
+                input.max = '17';
+                input.required = true;
+                input.className = 'age-input';
+                input.placeholder = 'Age';
+                
+                div.appendChild(label);
+                div.appendChild(input);
+                agesContainer.appendChild(div);
+            }
+        }
+    }
+    
+    // Initialize age inputs
+    updateAgeInputs();
+    
+    // Form validation and submission
+    const form = document.getElementById('travelProposalForm');
+    const successMessage = document.getElementById('success-message');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Basic validation
+        let isValid = true;
+        const requiredFields = form.querySelectorAll('[required]');
+        
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                field.classList.add('error');
+                isValid = false;
+                
+                // Create error message if it doesn't exist
+                if (!field.nextElementSibling || !field.nextElementSibling.classList.contains('error-message')) {
+                    const errorMsg = document.createElement('div');
+                    errorMsg.className = 'error-message';
+                    errorMsg.textContent = 'This field is required';
+                    field.parentNode.insertBefore(errorMsg, field.nextSibling);
+                }
+            } else {
+                field.classList.remove('error');
+                const errorMsg = field.nextElementSibling;
+                if (errorMsg && errorMsg.classList.contains('error-message')) {
+                    errorMsg.remove();
+                }
+            }
+        });
+        
+        // Validate email format
+        const emailField = document.getElementById('email');
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailField.value && !emailRegex.test(emailField.value)) {
+            emailField.classList.add('error');
+            isValid = false;
+            
+            if (!emailField.nextElementSibling || !emailField.nextElementSibling.classList.contains('error-message')) {
+                const errorMsg = document.createElement('div');
+                errorMsg.className = 'error-message';
+                errorMsg.textContent = 'Please enter a valid email address';
+                emailField.parentNode.insertBefore(errorMsg, emailField.nextSibling);
+            }
+        }
+        
+        if (isValid) {
+            // Get the full international phone number
+            const phoneNumber = iti.getNumber();
+            
+            // Prepare form data for submission
+            const formData = new FormData();
+            formData.append('first-name', document.getElementById('first-name').value);
+            formData.append('last-name', document.getElementById('last-name').value);
+            formData.append('email', document.getElementById('email').value);
+            formData.append('phone', phoneNumber);
+            formData.append('country', document.getElementById('country').value);
+            formData.append('days', document.getElementById('days').value);
+            formData.append('budget', document.getElementById('budget').value);
+            formData.append('travel-date', document.getElementById('travel-date').value);
+            formData.append('notes', document.getElementById('notes').value);
+            formData.append('adults', document.getElementById('adults').value);
+            formData.append('children', document.getElementById('children').value);
+            
+            // Get travel type checkboxes
+            const travelTypes = [];
+            form.querySelectorAll('input[name="travel-type"]:checked').forEach(checkbox => {
+                travelTypes.push(checkbox.value);
+            });
+            formData.append('travel-types', travelTypes.join(', '));
+            
+            // Get travel companion radio
+            const travelCompanion = form.querySelector('input[name="travel-companions"]:checked');
+            formData.append('travel-companion', travelCompanion ? travelCompanion.value : '');
+            
+            // Get permission and discount checkboxes
+            formData.append('permission', document.querySelector('input[name="permission"]').checked ? 'Yes' : 'No');
+            formData.append('discount', document.querySelector('input[name="discount"]').checked ? 'Yes' : 'No');
+            
+            // Get ages of travellers
+            const adultAges = [];
+            for (let i = 1; i <= parseInt(document.getElementById('adults').value); i++) {
+                adultAges.push(document.getElementById(`adult-age-${i}`).value);
+            }
+            formData.append('adult-ages', adultAges.join(', '));
+            
+            const childAges = [];
+            for (let i = 1; i <= parseInt(document.getElementById('children').value); i++) {
+                childAges.push(document.getElementById(`child-age-${i}`).value);
+            }
+            formData.append('child-ages', childAges.join(', '));
+            
+            // Submit form via AJAX
+            fetch('submit-proposal.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    form.reset();
+                    form.classList.add('hidden');
+                    successMessage.classList.remove('hidden');
+                } else {
+                    alert('There was an error submitting your request. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error submitting your request. Please try again.');
+            });
+        }
+    });
+    
+    // Remove error class when user starts typing
+    const inputs = form.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('input', function() {
+            this.classList.remove('error');
+            const errorMsg = this.nextElementSibling;
+            if (errorMsg && errorMsg.classList.contains('error-message')) {
+                errorMsg.remove();
+            }
+        });
+    });
+});
+</script>
