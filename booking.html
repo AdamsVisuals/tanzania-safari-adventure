@@ -27,6 +27,38 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=1.6">
     <link rel="stylesheet" href="booking.css?v=1.0">
+    <style>
+        /* Loading spinner styles */
+        .submit-btn {
+            position: relative;
+        }
+        
+        .submit-btn .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .submit-btn.loading {
+            color: transparent;
+        }
+        
+        .submit-btn.loading .spinner {
+            display: block;
+        }
+        
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
     <!-- Top Bar -->
@@ -492,7 +524,10 @@
                     </label>
                 </div>
 
-                <button type="submit" class="submit-btn">Request Proposal</button>
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text">Request Proposal</span>
+                    <div class="spinner"></div>
+                </button>
             </form>
         </div>
     </div>
@@ -533,9 +568,26 @@
     // Populate countries dropdown
     const countrySelect = document.getElementById('country');
     const countries = [
-        "United States", "United Kingdom", "Canada", "Australia", "Germany", 
-        "France", "Italy", "Spain", "Netherlands", "Switzerland", "South Africa",
-        "Other"
+        "Afghanistan","Albania","Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia","Australia","Austria",
+        "Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan",
+        "Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","Cabo Verde","Cambodia",
+        "Cameroon","Canada","Central African Republic","Chad","Chile","China","Colombia","Comoros","Congo (Congo-Brazzaville)","Costa Rica",
+        "Croatia","Cuba","Cyprus","Czechia (Czech Republic)","Democratic Republic of the Congo","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador",
+        "Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Eswatini (fmr. Swaziland)","Ethiopia","Fiji","Finland","France",
+        "Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau",
+        "Guyana","Haiti","Honduras","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland",
+        "Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Kuwait","Kyrgyzstan",
+        "Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Madagascar",
+        "Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia",
+        "Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar (formerly Burma)","Namibia","Nauru","Nepal",
+        "Netherlands","New Zealand","Nicaragua","Niger","Nigeria","North Korea","North Macedonia","Norway","Oman","Pakistan",
+        "Palau","Palestine State","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Qatar",
+        "Romania","Russia","Rwanda","Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia",
+        "Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa",
+        "South Korea","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Sweden","Switzerland","Syria","Tajikistan",
+        "Tanzania","Thailand","Timor-Leste","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu",
+        "Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela",
+        "Vietnam","Yemen","Zambia","Zimbabwe","Other"
     ];
     
     countries.forEach(country => {
@@ -654,9 +706,15 @@
     // Form validation and submission
     const form = document.getElementById('travelProposalForm');
     const successMessage = document.getElementById('success-message');
+    const submitBtn = form.querySelector('.submit-btn');
+    const btnText = submitBtn.querySelector('.btn-text');
     
     form.addEventListener('submit', function(e) {
         e.preventDefault();
+        
+        // Show loading spinner and disable button
+        submitBtn.classList.add('loading');
+        submitBtn.disabled = true;
         
         // Basic validation
         let isValid = true;
@@ -698,84 +756,160 @@
             }
         }
         
-        if (isValid) {
-            // Get the full international phone number
-            const phoneNumber = iti.getNumber();
-            
-            // Prepare form data for submission
-            const formData = new FormData();
-            formData.append('first-name', document.getElementById('first-name').value);
-            formData.append('last-name', document.getElementById('last-name').value);
-            formData.append('email', document.getElementById('email').value);
-            formData.append('phone', phoneNumber);
-            formData.append('country', document.getElementById('country').value);
-            formData.append('days', document.getElementById('days').value);
-            formData.append('budget', document.getElementById('budget').value);
-            formData.append('travel-date', document.getElementById('travel-date').value);
-            formData.append('notes', document.getElementById('notes').value);
-            formData.append('adults', document.getElementById('adults').value);
-            formData.append('children', document.getElementById('children').value);
-            
-            // Get travel type checkboxes
-            const travelTypes = [];
-            form.querySelectorAll('input[name="travel-type"]:checked').forEach(checkbox => {
-                travelTypes.push(checkbox.value);
-            });
-            formData.append('travel-types', travelTypes.join(', '));
-            
-            // Get travel companion radio
-            const travelCompanion = form.querySelector('input[name="travel-companions"]:checked');
-            formData.append('travel-companion', travelCompanion ? travelCompanion.value : '');
-            
-            // Get permission and discount checkboxes
-            formData.append('permission', document.querySelector('input[name="permission"]').checked ? 'Yes' : 'No');
-            formData.append('discount', document.querySelector('input[name="discount"]').checked ? 'Yes' : 'No');
-            
-            // Get ages of travellers
-            const adultAges = [];
-            for (let i = 1; i <= parseInt(document.getElementById('adults').value); i++) {
-                adultAges.push(document.getElementById(`adult-age-${i}`).value);
-            }
-            formData.append('adult-ages', adultAges.join(', '));
-            
-            const childAges = [];
-            for (let i = 1; i <= parseInt(document.getElementById('children').value); i++) {
-                childAges.push(document.getElementById(`child-age-${i}`).value);
-            }
-            formData.append('child-ages', childAges.join(', '));
-            
-            // Submit form via AJAX
-            fetch('submit-proposal.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    form.reset();
-                    form.classList.add('hidden');
-                    successMessage.classList.remove('hidden');
-                } else {
-                    alert('There was an error submitting your request. Please try again.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('There was an error submitting your request. Please try again.');
-            });
+        if (!isValid) {
+            // Hide loading spinner and re-enable button if validation fails
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
+            return;
         }
-    });
-    
-    // Remove error class when user starts typing
-    const inputs = form.querySelectorAll('input, select, textarea');
-    inputs.forEach(input => {
-        input.addEventListener('input', function() {
-            this.classList.remove('error');
-            const errorMsg = this.nextElementSibling;
-            if (errorMsg && errorMsg.classList.contains('error-message')) {
-                errorMsg.remove();
+        
+        // Get the full international phone number
+        const phoneNumber = iti.getNumber();
+        
+        // Prepare form data for submission
+        const formData = new FormData();
+        formData.append('first-name', document.getElementById('first-name').value);
+        formData.append('last-name', document.getElementById('last-name').value);
+        formData.append('email', document.getElementById('email').value);
+        formData.append('phone', phoneNumber);
+        formData.append('country', document.getElementById('country').value);
+        formData.append('days', document.getElementById('days').value);
+        formData.append('budget', document.getElementById('budget').value);
+        formData.append('travel-date', document.getElementById('travel-date').value);
+        formData.append('notes', document.getElementById('notes').value);
+        formData.append('adults', document.getElementById('adults').value);
+        formData.append('children', document.getElementById('children').value);
+        
+        // Get travel type checkboxes
+        const travelTypes = [];
+        form.querySelectorAll('input[name="travel-type"]:checked').forEach(checkbox => {
+            travelTypes.push(checkbox.value);
+        });
+        formData.append('travel-types', travelTypes.join(', '));
+        
+        // Get travel companion radio
+        const travelCompanion = form.querySelector('input[name="travel-companions"]:checked');
+        formData.append('travel-companion', travelCompanion ? travelCompanion.value : '');
+        
+        // Get permission and discount checkboxes
+        formData.append('permission', document.querySelector('input[name="permission"]').checked ? 'Yes' : 'No');
+        formData.append('discount', document.querySelector('input[name="discount"]').checked ? 'Yes' : 'No');
+        
+        // Get ages of travellers
+        const adultAges = [];
+        for (let i = 1; i <= parseInt(document.getElementById('adults').value); i++) {
+            adultAges.push(document.getElementById(`adult-age-${i}`).value);
+        }
+        formData.append('adult-ages', adultAges.join(', '));
+        
+        const childAges = [];
+        for (let i = 1; i <= parseInt(document.getElementById('children').value); i++) {
+            childAges.push(document.getElementById(`child-age-${i}`).value);
+        }
+        formData.append('child-ages', childAges.join(', '));
+        
+        // Submit form via AJAX
+        fetch('submit-proposal.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                // Hide form and show success message
+                form.style.display = 'none';
+                successMessage.classList.remove('hidden');
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                throw new Error('Form submission failed');
             }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('There was an error submitting your form. Please try again.');
+        })
+        .finally(() => {
+            // Always remove loading state
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
         });
     });
 });
 </script>
+
+<footer class="footer-container">
+  <div class="footer-content">
+    <div class="footer-column footer-brand">
+      <div class="footer-logo">
+        <img src="images/Tanzania adventure transparent logo.png" alt="Company Logo" class="logo-img">
+      </div>
+      <p class="footer-tagline">Explore Tanzania’s breathtaking safaris with us.</p>
+    </div>
+    
+    <!-- Useful Links -->
+    <div class="footer-column footer-links">
+      <h3 class="footer-heading">Popular Safaris</h3>
+      <ul class="footer-nav">
+        <li><a href="northern-circuit.html" class="footer-link">Northern Circuit Safaris</a></li>
+        <li><a href="southern-circuit.html" class="footer-link">Southern Circuit Safaris</a></li>
+        <li><a href="mara-river-migration.html" class="footer-link">Great Migration Safaris</a></li>
+        <li><a href="zanzibar.html" class="footer-link">Zanzibar</a></li>
+      </ul>
+    </div>
+    
+    <!-- Experiences -->
+    <div class="footer-column footer-links">
+      <h3 class="footer-heading">Experiences</h3>
+      <ul class="footer-nav">
+        <li><a href="honeymoon-safaris.html" class="footer-link">Honeymoon Safaris</a></li>
+        <li><a href="culture-tours.html" class="footer-link">Cultural Experiences</a></li>
+        <li><a href="luxury-safaris.html" class="footer-link">High-End Luxury Safaris</a></li>
+        <li><a href="balloon-safaris.html" class="footer-link">Balloon Safaris</a></li>
+      </ul>
+    </div>
+    
+    <!-- Company -->
+    <div class="footer-column footer-links">
+      <h3 class="footer-heading">Company</h3>
+      <ul class="footer-nav">
+        <li><a href="about.html" class="footer-link">About Us</a></li>
+        <li><a href="blog.html" class="footer-link">Blog</a></li>
+        <li><a href="contact.html" class="footer-link">Contact</a></li>
+      </ul>
+    </div>
+    
+    <!-- Social Media -->
+    <div class="footer-column footer-social">
+      <h3 class="footer-heading">Follow Us</h3>
+      <div class="social-icons">
+        <a href="https://facebook.com/tanzaniasafariadventure" class="social-link" aria-label="Facebook" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://tiktok.com/@tanzaniasafariadventure" class="social-link" aria-label="TikTok" target="_blank">
+          <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://www.instagram.com/tanzania_safari_adventure" class="social-link" aria-label="Instagram" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-copyright">
+      <p>
+        &copy; <span id="current-year"></span> Tanzania Safari Adventure — 
+        Designed by <a href="https://adamsplus.com" class="designer-link" target="_blank">Adams+</a>
+      </p>
+    </div>
+  </div>
+  
+  <script>
+    // Auto-update year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</footer>
+
+    <script src="scripts.js?v=1.0"></script>
+</body>
+</html>
