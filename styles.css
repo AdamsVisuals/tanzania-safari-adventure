@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #FFFFFF;
+    background-color: #f8f9fa;
     color: #333;
     padding-top: 0px; /* Account for top bar height */
 }
@@ -852,7 +852,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 60px 20px;
-    font-family: 'Finger Paint', cursive;
+    font-family: 'poppins', sans-serif;
 }
 
 .section-heading {
@@ -1500,10 +1500,11 @@ body {
     background-color: #f5f5f5;
     padding: 60px 20px;
     color: #7a4a2b;
-    font-family: 'Finger Paint', cursive;
+    font-family: 'poppins', sans-serif;
 }
 
 .testimonials-header {
+    font-family: "Finger Paint", cursive;
     text-align: center;
     margin-bottom: 40px;
 }
@@ -1706,7 +1707,7 @@ body {
 .safari-expectations {
     background-color: #fafdff;
     padding: 60px 20px;
-    font-family: 'Finger Paint', cursive;
+    font-family: 'poppins', sans-serif;
 }
 
 .section-title {
@@ -1758,7 +1759,7 @@ body {
 }
 
 .text-card h3 {
-    font-family: "Finger Paint", cursive;
+    font-family: 'poppins', sans-serif;
     font-weight: bold;
     color: #000;
     margin-bottom: 12px;
