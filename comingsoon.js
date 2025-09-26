@@ -7,24 +7,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const minutesElement = document.getElementById('minutes');
   const secondsElement = document.getElementById('seconds');
   
-// Set launch date (September 30, 2025)
-const launchDate = new Date('2025-09-30T00:00:00').getTime();
-  
-  // Check localStorage for stored countdown time
-  let storedTime = localStorage.getItem('countdownTime');
-  let countdownTime;
-  
-  if (storedTime) {
-    countdownTime = parseInt(storedTime);
-    // If stored time is in the past, set to 0
-    if (countdownTime <= 0) {
-      countdownTime = 0;
-    }
-  } else {
-    countdownTime = launchDate - new Date().getTime();
-  }
+  // Set launch date (September 30, 2025)
+  const launchDate = new Date('2025-09-30T00:00:00').getTime();
   
   function updateCountdown() {
+    // Calculate time remaining from current time to launch date
+    const currentTime = new Date().getTime();
+    const countdownTime = launchDate - currentTime;
+    
     // Calculate time units
     const days = Math.floor(countdownTime / (1000 * 60 * 60 * 24));
     const hours = Math.floor((countdownTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -42,11 +32,6 @@ const launchDate = new Date('2025-09-30T00:00:00').getTime();
       clearInterval(countdownInterval);
       countdownElement.style.display = 'none';
       launchMessage.style.display = 'block';
-      localStorage.setItem('countdownTime', '0');
-    } else {
-      // Update countdown time and store in localStorage
-      countdownTime -= 1000;
-      localStorage.setItem('countdownTime', countdownTime.toString());
     }
   }
   
