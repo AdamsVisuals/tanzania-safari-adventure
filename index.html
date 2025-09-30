@@ -4,51 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming Soon</title>
-    <link rel="stylesheet" href="comingsoon.css">
+    <link rel="stylesheet" href="comingsoon.css?v=1.2">
 </head>
 <body>
-<section class="coming-soon">
-  <div class="container">
-    
-    <h1 class="heading">We're Finishing Up!</h1>
-    <p class="subheading">We are just a few days from our Big Launch. Sign Up to be notified!</p>
-    
-    <div class="countdown-container">
-      <div class="countdown" id="countdown">
-        <div class="countdown-item">
-          <span class="countdown-number" id="days">00</span>
-          <span class="countdown-label">Days</span>
+    <section class="coming-soon">
+        <div class="container">
+            
+            <h1 class="heading">We're Almost Live!</h1>
+            <p class="subheading">Just a few hours left until we unveil something special.</p>
+            
+            <div class="urgency-badge">Only Hours Remain</div>
+            
+            <div class="countdown-container">
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item hours-emphasis">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+                <div class="launch-message" id="launch-message" style="display: none;">
+                    <h2>We're Live!</h2>
+                </div>
+            </div>
+            
+            <form class="email-form" id="email-form">
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Enter your email for early access" required>
+                    <button type="submit" class="submit-btn">Notify Me</button>
+                </div>
+            </form>
         </div>
-        <div class="countdown-item">
-          <span class="countdown-number" id="hours">00</span>
-          <span class="countdown-label">Hours</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number" id="minutes">00</span>
-          <span class="countdown-label">Minutes</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number" id="seconds">00</span>
-          <span class="countdown-label">Seconds</span>
-        </div>
-      </div>
-      <div class="launch-message" id="launch-message" style="display: none;">
-        <h2>We're Live!</h2>
-      </div>
-    </div>
-    
-    <form class="email-form" id="email-form">
-      <div class="form-group">
-        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-        <button type="submit" class="submit-btn">Notify Me</button>
-      </div>
-    </form>
-  </div>
-  
-  <!-- Toast Notification -->
-  <div id="toast" class="toast"></div>
-</section>
+        
+        <!-- Toast Notification -->
+        <div id="toast" class="toast"></div>
+    </section>
 
-<script src="comingsoon.js?v=1.1"></script>
+    <script src="comingsoon.js?v=1.5"></script>
 </body>
 </html>

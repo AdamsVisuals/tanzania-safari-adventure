@@ -533,7 +533,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url('images/RHD26.jpg') no-repeat center center/cover;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url('images/DSC_1512.JPG') no-repeat center center/cover;
     padding: 20px;
     position: relative;
 }
